@@ -1,22 +1,22 @@
-def get_word_count(text):	
-	return len(text.split())
+def get_word_count(bookText):
+    return len(bookText.split())
 
-def char(book):
-    numChar = {}
-    for c in book:
+def getCharsDict(booktext):
+    chars = {}
+    for c in booktext:
         lowered = c.lower()
-        if lowered in numChar:
-            numChar[lowered] += 1
+        if lowered in chars:
+            chars[lowered] += 1
         else:
-            numChar[lowered] = 1
-    return numChar
+            chars[lowered] = 1
+    return chars
 
-def sort_on(list):
-    return list['num']
+def sort_on(d):
+    return d["num"]
 
-def sortCharList(list):
-    sortedList =[]
-    for char in list:
-        sortedList.append({"ch": char, "num": list[char]})
-        sortedList.sort(key=sort_on, reverse=True)
+def getSortedList(charDict):
+    sortedList = []
+    for ch in charDict:
+        sortedList.append({"char": ch, "num": charDict[ch]})
+    sortedList.sort(key=sort_on, reverse=True)
     return sortedList
